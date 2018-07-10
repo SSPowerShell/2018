@@ -61,4 +61,12 @@ $AdminCredentials = New-Object -TypeName System.Management.Automation.PSCredenti
 Restart-Computer -ComputerName "Test-VM-01" -Credential $AdminCredentials -Force  ## Used with the $AdminCredentials variable. 
 
 
+<#=====================================================================
 
+        Example Usage Kerberos to connect
+
+======================================================================#>
+
+$Computer = "ComputerName1"
+
+New-PSSession -Authentication Kerberos -ComputerName $Computer
