@@ -62,7 +62,7 @@ break ## Prevent the entire script from being run all at once.
 
 ## Check whether the 'Print Spooler' service is running on three differemt servers.
 
-    $Server1 = $ProtectedInfo[0]; $Server2 = $ProtectedInfo[2]; $Server3 = $ProtectedInfo[3]
+    $Server1 = server1; $Server2 = server2; $Server3 = server3  # You'll want to put in your server names here.
     
     Get-Service -ComputerName $Server1,$Server2,$Server3 | Where-Object {$_.name -like "Spooler"} 
 
@@ -102,7 +102,7 @@ break ## Prevent the entire script from being run all at once.
 
 ## Bring it all together! Report C: drive info for all computers in an AD Security group.
 
-    $ADGroupMembers = Get-ADGroupMember -Identity "SS-PowerShell-Test"
+    $ADGroupMembers = Get-ADGroupMember -Identity "Test" # This will need to be an AD group in your domain.
 
     foreach ($Computer in $ADGroupMembers)
     {
@@ -133,7 +133,7 @@ break ## Prevent the entire script from being run all at once.
 
 ## Check all computers in an AD Security Group for a specific Hotfix/Update (we'll use the RSAT as an example KB). 
     
-    $ADGroupMembers = Get-ADGroupMember -Identity "SS-PowerShell-Test"
+    $ADGroupMembers = Get-ADGroupMember -Identity "Test"  # This will need to be an AD group in your domain.
 
     foreach ($Computer in $ADGroupMembers) 
     {
